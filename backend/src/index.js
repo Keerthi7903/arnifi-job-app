@@ -6,10 +6,9 @@ const { initDB } = require("./config/db");
 const app = express();
 
 app.use(cors({
-  origin: [
-    "https://arnifi-job-app-zts2.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: function(origin, callback) {
+    callback(null, true);
+  },
   credentials: true
 }));
 
